@@ -10,15 +10,15 @@ class SubscriberTest extends TestCase
 {
     use RefreshDatabase;
 
-    private $subscriber;
+    private $service;
 
     public function subscriberService()
     {
-        if (!$this->subscriber) {
-            $this->subscriber = new SubscriberService();
+        if (!$this->service) {
+            $this->service = new SubscriberService();
         }
 
-        return $this->subscriber;
+        return $this->service;
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Utils\App;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Pipeline\Pipeline;
 
 abstract class CoreController extends Controller
 {

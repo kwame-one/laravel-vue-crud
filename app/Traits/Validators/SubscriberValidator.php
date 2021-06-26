@@ -34,4 +34,14 @@ trait SubscriberValidator
             'is_active' => ['required', 'boolean']
         ];
     }
+
+    /**
+     * custom error messages
+     *
+     * @return array
+     */
+    public static function errorMessages()
+    {
+        return [];
+    }
 }

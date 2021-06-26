@@ -24,9 +24,9 @@ class SubscriberPropertyValueFactory extends Factory
     public function definition()
     {
         return [
-            'subscriber_id' => Subscriber::create(Subscriber::factory()->make()->toArray())->id,
+            'subscriber_id' => Subscriber::factory()->create()->id,
             'org_id' => $this->faker->word,
-            'subscriber_property_id' => SubscriberProperty::create(SubscriberProperty::factory()->make()->toArray())->id,
+            'subscriber_property_id' => SubscriberProperty::factory()->create()->id,
             'value' => $this->faker->word
         ];
     }
