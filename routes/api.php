@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\SubscriberController;
 use App\Http\Controllers\Api\SubscriberPropertyController;
+use App\Http\Controllers\Api\SubscriberPropertyValueController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('subscribers', SubscriberController::class);
 
 Route::apiResource('subscriber_properties', SubscriberPropertyController::class);
+
+Route::apiResource('subscriber_property_values', SubscriberPropertyValueController::class);
