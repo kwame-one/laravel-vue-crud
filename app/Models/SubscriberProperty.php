@@ -5,9 +5,8 @@ namespace App\Models;
 use App\Traits\ParseDate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Subscriber extends Model
+class SubscriberProperty extends Model
 {
     use HasFactory, ParseDate;
 
