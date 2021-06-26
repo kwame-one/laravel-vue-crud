@@ -16,4 +16,14 @@ class SubscriberProperty extends Model
      * @var array
      */
     protected $guarded = ['id'];
+
+    /**
+     * get property values
+     *
+     * @return App\Models\SubscriberPropertyValue
+     */
+    public function propertyValues()
+    {
+        return $this->hasMany(SubscriberPropertyValue::class, 'subscriber_property_id');
+    }
 }

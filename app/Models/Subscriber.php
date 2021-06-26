@@ -11,10 +11,23 @@ class Subscriber extends Model
 {
     use HasFactory, ParseDate;
 
+    public $timestamps = false;
+
     /**
      * Attributes that are not mass assignable
      *
      * @var array
      */
     protected $guarded = ['id'];
+
+
+    /**
+     * get property values
+     *
+     * @return App\Models\SubscriberPropertyValue
+     */
+    public function propertyValues()
+    {
+        return $this->hasMany(SubscriberPropertyValue::class, 'subscriber_id');
+    }
 }
