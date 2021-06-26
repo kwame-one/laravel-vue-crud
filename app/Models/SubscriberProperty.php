@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Traits\ParseDate;
+use App\Traits\Validators\SubscriberPropertyValidator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class SubscriberProperty extends Model
 {
-    use HasFactory, ParseDate;
+    use HasFactory, ParseDate, SubscriberPropertyValidator;
 
     public $timestamps = false;
 
