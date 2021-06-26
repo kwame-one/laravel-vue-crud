@@ -10,23 +10,23 @@ class SubscriberTest extends TestCase
 {
     use RefreshDatabase;
 
-    private $service;
+    private $subscriber;
 
     public function subscriberService()
     {
-        if (!$this->service) {
-            $this->service = new SubscriberService();
+        if (!$this->subscriber) {
+            $this->subscriber = new SubscriberService();
         }
 
-        return $this->service;
+        return $this->subscriber;
     }
 
     /**
-     * store service.
+     * store subscriber.
      *
      * @return void
      */
-    public function test_store_service()
+    public function test_store_subscriber()
     {
         $subscriber = $this->subscriberService()
             ->store($this->subscriberService()->model()::factory()->make()->toArray());
@@ -37,11 +37,11 @@ class SubscriberTest extends TestCase
     }
 
     /**
-     * store service.
+     * store subscriber.
      *
      * @return void
      */
-    public function test_delete_service()
+    public function test_delete_subscriber()
     {
 
         $subscriber = $this->subscriberService()
@@ -62,11 +62,11 @@ class SubscriberTest extends TestCase
     }
 
     /**
-     * update service.
+     * update subscriber.
      *
      * @return void
      */
-    public function test_update_service()
+    public function test_update_subscriber()
     {
         $subscriber = $this->subscriberService()
             ->store($this->subscriberService()->model()::factory()->make()->toArray());
@@ -86,11 +86,11 @@ class SubscriberTest extends TestCase
     }
 
     /**
-     * find service.
+     * find subscriber.
      *
      * @return void
      */
-    public function test_find_service()
+    public function test_find_subscriber()
     {
 
         $subscriber = $this->subscriberService()

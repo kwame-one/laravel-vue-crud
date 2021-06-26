@@ -10,6 +10,8 @@ class SubscriberPropertyValue extends Model
 {
     use HasFactory, ParseDate;
 
+    public $timestamps = false;
+
     /**
      * Attributes that are not mass assignable
      *
