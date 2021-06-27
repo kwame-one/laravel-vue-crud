@@ -11,32 +11,32 @@
         <div class="row">
 
             <div class="col-md-12 mb-2">
-                <router-link :to="{name: 'add_subscriber'}" class="offset-md-10"><button type="button" class="btn btn-primary btn-sm">New Subscriber</button></router-link>
+                <router-link :to="{name: 'add_subscriber_property'}" class="offset-md-10"><button type="button" class="btn btn-primary btn-sm">New Subscriber Property</button></router-link>
             </div>
             <div class="col-md-12">
                 <table class="table table-hover table-responsive">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Phone</th>
+                        <th scope="col">name</th>
                         <th scope="col">Org Id</th>
-                        <th scope="col">Active</th>
+                        <th scope="col">is_private</th>
                         <th scope="col">Created at</th>
                         <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(subscriber, index) in subscribers" :key="subscriber.id">
+                        <tr v-for="(subscriberProperty, index) in subscriberProperties" :key="subscriberProperty.id">
                             <th scope="row">{{ index + 1 }}</th>
-                            <td>{{ subscriber.phone }}</td>
-                            <td>{{ subscriber.org_id }}</td>
-                            <td>{{ subscriber.is_active ? "Yes": "No" }}</td>
-                            <td>{{ subscriber.created_at }}</td>
+                            <td>{{ subscriberProperty.name }}</td>
+                            <td>{{ subscriberProperty.org_id }}</td>
+                            <td>{{ subscriberProperty.is_private ? "Yes": "No" }}</td>
+                            <td>{{ subscriberProperty.created_at }}</td>
                             <td>
-                                <router-link :to="{name: 'edit_subscriber', params: {id: subscriber.id}}">
+                                <router-link :to="{name: 'edit_subscriber_property', params: {id: subscriberProperty.id}}">
                                     <span class="btn btn-primary"><i class="small material-icons">edit</i></span>
                                 </router-link>
-                                <span @click="showModal(subscriber.id)" class="btn btn-danger">
+                                <span @click="showModal(subscriberProperty.id)" class="btn btn-danger">
                                     <i class="small material-icons">delete</i>
                                 </span>
                             </td>
@@ -52,7 +52,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Subscriber</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Subscriber Property</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -76,7 +76,7 @@
 
 <script>
 
-import {Subscriber} from "../../services"
+import {SubscriberProperty} from "../../services"
 
 export default {
 
@@ -85,7 +85,7 @@ export default {
         return {
 
             isLoading: false,
-            subscribers: [],
+            subscriberProperties: [],
             selectedId: 0
         }
     },
@@ -103,8 +103,8 @@ export default {
             this.isLoading = true;
 
             try {
-                let response = await Subscriber.index();
-                this.subscribers = response.data;
+                let response = await SubscriberProperty.index();
+                this.subscriberProperties = response.data;
                 this.isLoading = false;
 
             }catch(e) {
@@ -122,13 +122,13 @@ export default {
 
             try {
 
-                await Subscriber.destroy(this.selectedId);
+                await SubscriberProperty.destroy(this.selectedId);
 
                 this.isLoading = false;
 
                 this.$swal(
                     'Success',
-                    'Subscriber Deleted',
+                    'Subscriber Property Deleted',
                     'success'
                 )
 
@@ -138,7 +138,7 @@ export default {
 
                 this.$swal(
                     'Oops',
-                    'Error deleting subscriber',
+                    'Error deleting subscriber  property',
                     'error'
                 )
 

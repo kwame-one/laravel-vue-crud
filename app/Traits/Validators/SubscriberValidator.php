@@ -2,6 +2,8 @@
 
 namespace App\Traits\Validators;
 
+use Illuminate\Validation\Rule;
+
 trait SubscriberValidator
 {
 
@@ -14,7 +16,7 @@ trait SubscriberValidator
     public static function storeRules()
     {
         return [
-            'phone' => ['required', 'string'],
+            'phone' => ['required', 'string', 'unique:subscribers,phone'],
             'org_id' => ['required', 'string'],
             'is_active' => ['required', 'boolean']
         ];
@@ -29,7 +31,11 @@ trait SubscriberValidator
     public static function updateRules($id)
     {
         return [
-            'phone' => ['required', 'string'],
+            'phone' => [
+                'required', 'string',
+                Rule::unique('subscribers', 'phone')
+                    ->ignore($id)
+            ],
             'org_id' => ['required', 'string'],
             'is_active' => ['required', 'boolean']
         ];

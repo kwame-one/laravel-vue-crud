@@ -1,31 +1,14 @@
+import axios from "axios";
+
 export default {
-    index() {
-        return axios.get('subscriber_property_values')
-            .then(response => Promise.resolve(response.data))
-            .catch(error => Promise.reject(error.response.data));
-    },
+    index: async () => axios.get('subscriber_property_values'),
 
-    get(id) {
-        return axios.get(`subscriber_property_values/${id}`)
-            .then(response => Promise.resolve(response.data))
-            .catch(error => Promise.reject(error.response.data));
-    },
+    get: async (id) => axios.get(`subscriber_property_values/${id}`),
 
-    store(data) {
-        return axios.post('subscriber_property_values', data)
-            .then(response => Promise.resolve(response.data))
-            .catch(error => Promise.reject(error.response.data));
-    },
+    store: async (data) => axios.post('subscriber_property_values', data),
 
-    update(id, data) {
-        return axios.put(`subscriber_property_values/${id}`, data)
-        .then(response => Promise.resolve(response.data))
-        .catch(error => Promise.reject(error.response.data));
-    },
+    update: async (id, data) => axios.put(`subscriber_property_values/${id}`, data),
 
-    delete(id) {
-        return axios.delete(`subscriber_property_values/${id}`)
-        .then(response => Promise.resolve(response.data))
-        .catch(error => Promise.reject(error.response.data));
-    }
+    destroy: async (id) => axios.delete(`subscriber_property_values/${id}`)
+
 }

@@ -1,32 +1,13 @@
 
 export default {
-    index() {
-        return window.axios.get('subscribers')
-            .then(response => Promise.resolve(response.data))
-            .catch(error => Promise.reject(error.response.data));
-    },
+    index: async () => axios.get('subscribers'),
 
-    get(id) {
-        return axios.get(`subscribers/${id}`)
-            .then(response => Promise.resolve(response.data))
-            .catch(error => Promise.reject(error.response.data));
-    },
+    get: async (id) => axios.get(`subscribers/${id}`),
 
-    store(data) {
-        return axios.post('subscribers', data)
-            .then(response => Promise.resolve(response.data))
-            .catch(error => Promise.reject(error.response.data));
-    },
+    store: async (data) => axios.post('subscribers', data),
 
-    update(id, data) {
-        return axios.put(`subscribers/${id}`, data)
-        .then(response => Promise.resolve(response.data))
-        .catch(error => Promise.reject(error.response.data));
-    },
+    update: async (id, data) => axios.put(`subscribers/${id}`, data),
 
-    delete(id) {
-        return axios.delete(`subscribers/${id}`)
-        .then(response => Promise.resolve(response.data))
-        .catch(error => Promise.reject(error.response.data));
-    }
+    destroy: async (id) => axios.delete(`subscribers/${id}`)
+
 }
