@@ -17,6 +17,7 @@ Open **.env** file  and set the values for the following variables
 - PHP 7.4 or above
 - MySQL
 - NodeJS
+- Composer
 
 ### Installation
 
