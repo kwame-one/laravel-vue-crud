@@ -27,6 +27,10 @@ Open terminal or command prompt in the directory of the project and run the foll
 2. php artisan key:generate
 3. npm install
 
+### Migrate Tables
+
+- php artisan migrate
+
 ### Run Tests
 
 - php artisan test
